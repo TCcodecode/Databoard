@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务细分数据</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260302-0015" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  </head>
+  <body>
+    <div class="bg-shape shape-a"></div>
+    <div class="bg-shape shape-b"></div>
+
+    <div class="app">
+      <header class="topbar">
+        <div class="title-block">
+          <h1 id="detailTitle">任务细分数据</h1>
+          <p><a class="nav-btn" href="./index.html">返回首页</a></p>
+        </div>
+
+        <div class="filter-panel">
+          <div class="filter-mode" id="filterMode">
+            <button class="mode-btn active" data-mode="single">单天</button>
+            <button class="mode-btn" data-mode="range">时间段</button>
+          </div>
+
+          <div class="date-inputs" id="singleDateWrap">
+            <label>
+              日期
+              <input type="date" id="singleDate" />
+            </label>
+          </div>
+
+          <div class="date-inputs hidden" id="rangeDateWrap">
+            <label>
+              开始
+              <input type="date" id="startDate" />
+            </label>
+            <label>
+              结束
+              <input type="date" id="endDate" />
+            </label>
+          </div>
+
+          <button id="applyFilterBtn" class="apply-btn">应用筛选</button>
+
+          <div class="data-tools">
+            <label class="file-btn">
+              导入数据(Excel优先)
+              <input id="dataFileInput" type="file" accept=".json,.csv,.xlsx,.xls" />
+            </label>
+            <button id="downloadTemplateBtn" class="ghost-btn">下载Excel模板</button>
+            <span id="importStatus" class="import-status">使用当前数据</span>
+          </div>
+        </div>
+      </header>
+
+      <nav class="task-nav" id="taskNav"></nav>
+
+      <main>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>任务细分展示</h2>
+            <span class="panel-note" id="filterSummary"></span>
+          </div>
+          <div id="taskDetails" class="task-details"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./chart-data/dashboard-data.js?v=20260302-0091"></script>
+    <script src="./task-detail.js?v=20260302-0095"></script>
+  </body>
+</html>
